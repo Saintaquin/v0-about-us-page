@@ -1,0 +1,310 @@
+"use client"
+
+import { useEffect, useRef } from "react"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
+import { Card, CardContent } from "@/components/ui/card"
+import { TrendingUp, Lightbulb, Trophy, Settings, Users, BookOpen, Award, Target } from "lucide-react"
+
+const services = [
+  {
+    icon: BookOpen,
+    title: "Préparations aux certifications",
+    description:
+      "SUPFINANCE propose des formations courtes et ciblées pour préparer les certifications les plus reconnues du secteur, renforçant ainsi l'employabilité et l'expertise des étudiants et professionnels. Parmi nos préparations : Certification AMF, CFA (CFA Institute), DCG et DSCG, Finance Quantitative, CAMS, Power BI, Cybersécurité, SWIFT, Python, Trading, CIA, ESG, et bien d'autres.",
+    image: "/professional-certification-study-materials.jpg",
+  },
+  {
+    icon: Users,
+    title: "Formations Inter et Intra",
+    description:
+      "Nous organisons régulièrement des séminaires et conférences publiques autour de thématiques clés de l'actualité financière, économique et technologique (notamment en data et intelligence artificielle). Nous proposons également des formations sur mesure en intra-entreprise, adaptées aux besoins des entreprises et institutions financières.",
+    image: "/business-conference-seminar-presentation.png",
+  },
+  {
+    icon: Target,
+    title: "Externalisation de la formation",
+    description:
+      "Nous prenons en charge l'ensemble de vos activités de formation, avec l'appui d'un corps de formateurs expérimentés. Notre équipe accompagne votre entreprise dans l'acquisition et le renforcement des compétences de vos collaborateurs, en parfaite adéquation avec vos objectifs métiers.",
+    image: "/corporate-training-outsourcing-business.png",
+  },
+  {
+    icon: Award,
+    title: "Préparations aux concours et tests d'aptitudes",
+    description:
+      "SUPFINANCE vous accompagne dans la préparation aux principaux concours et tests d'aptitude, tels que le TAGE MAGE, le GMAT ou le TOEIC, pour maximiser vos chances de réussite.",
+    image: "/exam-preparation-test-aptitude-study.png",
+  },
+  {
+    icon: TrendingUp,
+    title: "Formations Certifiantes",
+    description:
+      "Boostez votre carrière et développez vos compétences, où que vous soyez, grâce à nos formations 100 % en distanciel, flexibles et certifiantes.",
+    image: "/online-certification-remote-learning.png",
+  },
+  {
+    icon: Lightbulb,
+    title: "Anglais Financier & Comptable",
+    description:
+      "Des formations en anglais financier et comptable, disponibles en cours individuels ou en sessions de groupe, adaptées à tous les niveaux.",
+    image: "/business-english-financial-accounting-training.jpg",
+  },
+]
+
+const insights = [
+  {
+    icon: TrendingUp,
+    title: "Compétences",
+    description:
+      "Dans un secteur en constante évolution, les compétences en finance et en data doivent sans cesse s'adapter. Face aux avancées technologiques, à l'innovation et aux exigences réglementaires, combler ce gap de compétences est devenu essentiel pour les professionnels comme pour les étudiants.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Savoir-Faire et Faire-Savoir",
+    description:
+      "Le savoir-faire est indispensable, mais ne suffit plus dans le domaine de la formation. Le faire-savoir, à travers une stratégie pédagogique personnalisée et adaptée, devient essentiel pour garantir l'efficacité et l'impact des apprentissages.",
+  },
+  {
+    icon: Trophy,
+    title: "Compétitivité",
+    description:
+      "De plus en plus d'étudiants complètent leur cursus par des formations et certifications complémentaires afin de renforcer leur CV et d'augmenter leurs chances de décrocher un stage, une alternance ou un emploi à la hauteur de leurs ambitions.",
+  },
+  {
+    icon: Settings,
+    title: "À la carte",
+    description:
+      "First Institute innove avec une offre à la carte basée sur la méthode du pooling, qui mutualise les ressources pour réduire les coûts et proposer une alternative économique au coaching individuel.",
+  },
+]
+
+export default function AboutPage() {
+  const heroRef = useRef<HTMLDivElement>(null)
+  const servicesRef = useRef<HTMLDivElement>(null)
+  const insightsRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-in")
+        }
+      })
+    }, observerOptions)
+
+    // Observe all animated elements
+    const animatedElements = document.querySelectorAll(".animate-on-scroll")
+    animatedElements.forEach((el) => observer.observe(el))
+
+    // Parallax effect for hero background
+    const handleScroll = () => {
+      const scrolled = window.pageYOffset
+      const parallax = heroRef.current
+      if (parallax) {
+        const speed = scrolled * 0.5
+        parallax.style.transform = `translateY(${speed}px)`
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
+  return (
+    <main className="min-h-screen bg-background">
+      <Header />
+
+      {/* Hero Section with Parallax */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div ref={heroRef} className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-blue-600" />
+        <div className="absolute inset-0 bg-[url('/modern-finance-office-building-glass-architecture.png')] bg-cover bg-center opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-primary/40" />
+
+        <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
+          <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-white to-cyan-200 bg-clip-text text-transparent">
+              SupFinance
+            </h1>
+            <div className="h-1 w-32 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto mb-8 rounded-full" />
+            <p className="text-2xl md:text-4xl font-light mb-12 text-slate-800 drop-shadow-lg">
+              L'excellence en Finance
+            </p>
+          </div>
+
+          <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-300">
+            <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-slate-700 drop-shadow-md">
+              Organisme de formation spécialisé dans les préparations aux certifications les plus reconnues dans le
+              monde de la finance
+            </p>
+          </div>
+
+          {/* Floating elements */}
+          <div className="absolute top-20 left-10 w-20 h-20 bg-cyan-400/20 rounded-full blur-xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-32 h-32 bg-blue-400/20 rounded-full blur-xl animate-pulse delay-1000" />
+          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full blur-lg animate-bounce delay-500" />
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse" />
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section ref={servicesRef} className="py-32 bg-gradient-to-b from-background to-muted/30">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-20 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+            <h2 className="text-5xl font-bold text-foreground mb-6">
+              Nos <span className="text-primary">Services</span>
+            </h2>
+            <div className="h-1 w-24 bg-gradient-to-r from-primary to-blue-500 mx-auto mb-8 rounded-full" />
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Découvrez notre gamme complète de formations et services adaptés à vos besoins professionnels
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => {
+              const Icon = service.icon
+              return (
+                <Card
+                  key={service.title}
+                  className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-on-scroll opacity-0 translate-y-8 border-0 bg-white/80 backdrop-blur-sm overflow-hidden"
+                  style={{ animationDelay: `${index * 150}ms` }}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={service.image || "/placeholder.svg"}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute top-4 left-4 w-12 h-12 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                  </div>
+
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Insights Section */}
+      <section
+        ref={insightsRef}
+        className="py-32 bg-gradient-to-br from-muted/50 to-background relative overflow-hidden"
+      >
+        {/* Background decorative elements */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
+
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-20 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+            <h2 className="text-5xl font-bold text-foreground mb-6">
+              Nos <span className="text-primary">Constats</span>
+            </h2>
+            <div className="h-1 w-24 bg-gradient-to-r from-primary to-blue-500 mx-auto mb-8 rounded-full" />
+            <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground">
+              <p>
+                Chez <strong className="text-primary">SupFinance</strong>, l'excellence{" "}
+                <strong className="text-foreground">pédagogique</strong> et{" "}
+                <strong className="text-foreground">professionnelle</strong> vont de pair.
+              </p>
+              <p>
+                Dans un monde où les compétences évoluent rapidement, tant en termes de spécialisation que de niveau
+                d'expertise, SupFinance vous accompagne dans le développement de votre carrière.
+              </p>
+              <p>
+                Nous proposons des formations et certifications en <strong className="text-primary">finance</strong> et
+                en <strong className="text-primary">data</strong>, conçues pour répondre aux exigences du marché.
+              </p>
+              <p className="text-primary font-semibold text-xl">
+                Notre mission : vous aider à réussir votre <strong>transition professionnelle</strong>, à renforcer vos{" "}
+                <strong>compétences</strong> et à atteindre vos <strong>ambitions de carrière</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {insights.map((insight, index) => {
+              const Icon = insight.icon
+              return (
+                <Card
+                  key={insight.title}
+                  className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-on-scroll opacity-0 translate-y-8 bg-white/90 backdrop-blur-sm border-0 overflow-hidden"
+                  style={{ animationDelay: `${index * 200}ms` }}
+                >
+                  <CardContent className="p-8 relative">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-blue-500/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
+
+                    <div className="flex items-start space-x-4 relative z-10">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary to-blue-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-lg">
+                        <Icon className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
+                          {insight.title}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">{insight.description}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+
+      <style jsx global>{`
+        .animate-on-scroll {
+          transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .animate-on-scroll.animate-in {
+          opacity: 1 !important;
+          transform: translateY(0) !important;
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+        
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+          0%, 100% { box-shadow: 0 0 20px rgba(8, 145, 178, 0.3); }
+          50% { box-shadow: 0 0 40px rgba(8, 145, 178, 0.6); }
+        }
+        
+        .pulse-glow {
+          animation: pulse-glow 3s ease-in-out infinite;
+        }
+      `}</style>
+    </main>
+  )
+}
