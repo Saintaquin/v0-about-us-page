@@ -5,11 +5,15 @@ import Link from "next/link"
 import { Menu, X, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/contexts/language-context"
+import Image from "next/image"
+import { usePathname, useRouter } from "next/navigation"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { language, setLanguage, t } = useLanguage()
+  const pathname = usePathname()
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +24,26 @@ export default function Header() {
   }, [])
 
   const toggleLanguage = () => {
-    setLanguage(language === "fr" ? "en" : "fr")
+    const newLanguage = language === "fr" ? "en" : "fr"
+    setLanguage(newLanguage)
+  }
+
+  const handleContactClick = () => {
+    if (pathname === "/a-propos-de-nous") {
+      const contactSection = document.getElementById("contact")
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" })
+      }
+    } else {
+      router.push("/a-propos-de-nous")
+      setTimeout(() => {
+        const contactSection = document.getElementById("contact")
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: "smooth" })
+        }
+      }, 100)
+    }
+    setIsMobileMenuOpen(false)
   }
 
   const navigation = [
@@ -28,24 +51,29 @@ export default function Header() {
     { name: t("nav.team"), href: "/notre-equipe" },
     { name: t("nav.certifications"), href: "/certifications" },
     { name: t("nav.formations"), href: "/formations-supfinance" },
-    { name: t("nav.contact"), href: "#contact" },
   ]
+
+  const shouldHaveBackground = isScrolled || pathname === "/a-propos-de-nous" || pathname === "/"
 
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
+        shouldHaveBackground ? "bg-background/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
       }`}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">S</span>
-              </div>
-              <span className="text-xl font-bold text-foreground">SupFinance</span>
-            </Link>
+            <div className="flex items-center">
+              <Image
+                src="/supfinance-new-logo.png"
+                alt="SupFinance Formations"
+                width={200}
+                height={50}
+                className="h-12 w-auto"
+                priority
+              />
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -65,6 +93,14 @@ export default function Header() {
 
           <div className="hidden md:flex items-center space-x-4">
             <Button
+              variant="default"
+              size="sm"
+              onClick={handleContactClick}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+            >
+              {t("nav.contact")}
+            </Button>
+            <Button
               variant="outline"
               size="sm"
               onClick={toggleLanguage}
@@ -72,9 +108,6 @@ export default function Header() {
             >
               <Globe className="h-4 w-4" />
               <span className="font-medium">{language.toUpperCase()}</span>
-            </Button>
-            <Button asChild>
-              <Link href="#contact">{t("nav.contactUs")}</Link>
             </Button>
           </div>
 
@@ -102,6 +135,14 @@ export default function Header() {
               ))}
               <div className="pt-2 space-y-2">
                 <Button
+                  variant="default"
+                  size="sm"
+                  onClick={handleContactClick}
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  {t("nav.contact")}
+                </Button>
+                <Button
                   variant="outline"
                   size="sm"
                   onClick={toggleLanguage}
@@ -109,11 +150,6 @@ export default function Header() {
                 >
                   <Globe className="h-4 w-4" />
                   <span className="font-medium">{language.toUpperCase()}</span>
-                </Button>
-                <Button asChild className="w-full">
-                  <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
-                    {t("nav.contactUs")}
-                  </Link>
                 </Button>
               </div>
             </div>

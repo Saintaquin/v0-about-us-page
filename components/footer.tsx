@@ -1,11 +1,10 @@
-import Link from "next/link"
 import { Mail, Phone, MapPin } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-foreground text-background">
+    <footer className="bg-foreground text-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Logo and description */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
@@ -32,33 +31,6 @@ export default function Footer() {
                 <span className="text-background/95">Paris, France</span>
               </div>
             </div>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Navigation</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="#about" className="text-background/90 hover:text-primary transition-colors">
-                  À propos de nous
-                </Link>
-              </li>
-              <li>
-                <Link href="#team" className="text-background/90 hover:text-primary transition-colors">
-                  Notre Équipe
-                </Link>
-              </li>
-              <li>
-                <Link href="#certifications" className="text-background/90 hover:text-primary transition-colors">
-                  Certifications
-                </Link>
-              </li>
-              <li>
-                <Link href="#formations" className="text-background/90 hover:text-primary transition-colors">
-                  Formations
-                </Link>
-              </li>
-            </ul>
           </div>
 
           {/* Certifications */}

@@ -18,15 +18,15 @@ export default function Hero() {
       </div>
 
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/15 via-transparent to-blue-500/15 animate-pulse"></div>
-        <div className="absolute inset-0 bg-gradient-to-tl from-blue-400/8 via-transparent to-cyan-400/8 animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-primary/15 animate-pulse"></div>
+        <div className="absolute inset-0 bg-gradient-to-tl from-primary/8 via-transparent to-primary/8 animate-pulse delay-1000"></div>
       </div>
 
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-blue-400/20 rounded-full animate-float blur-sm"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-blue-400/15 to-cyan-400/15 rounded-full animate-float-delayed blur-sm"></div>
-        <div className="absolute bottom-40 left-20 w-40 h-40 bg-gradient-to-br from-cyan-300/10 to-blue-300/10 rounded-full animate-float-slow blur-sm"></div>
-        <div className="absolute bottom-20 right-10 w-20 h-20 bg-gradient-to-br from-blue-300/20 to-cyan-300/20 rounded-full animate-float blur-sm"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-primary/20 to-primary/20 rounded-full animate-float blur-sm"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-primary/15 to-primary/15 rounded-full animate-float-delayed blur-sm"></div>
+        <div className="absolute bottom-40 left-20 w-40 h-40 bg-gradient-to-br from-primary/10 to-primary/10 rounded-full animate-float-slow blur-sm"></div>
+        <div className="absolute bottom-20 right-10 w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/20 rounded-full animate-float blur-sm"></div>
       </div>
 
       <div className="absolute inset-0 backdrop-blur-[0.5px] bg-white/3"></div>
@@ -34,7 +34,7 @@ export default function Hero() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in-up backdrop-blur-sm bg-white/10 rounded-3xl p-8 border border-white/20 shadow-2xl">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 text-balance">
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-500 bg-clip-text text-transparent animate-gradient-x drop-shadow-2xl">
+            <span className="bg-gradient-to-r from-primary via-primary to-blue-400 bg-clip-text text-transparent animate-gradient-x drop-shadow-2xl">
               SupFinance
             </span>
             <br />
@@ -50,7 +50,7 @@ export default function Hero() {
             <Button
               size="lg"
               asChild
-              className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-primary to-primary hover:from-primary/90 hover:to-primary/90 shadow-lg hover:shadow-primary/25 transition-all duration-300 transform hover:scale-105"
             >
               <Link href="#formations" className="group">
                 Découvrir nos formations
@@ -69,22 +69,22 @@ export default function Hero() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
             <div className="flex flex-col items-center group">
-              <div className="h-16 w-16 bg-gradient-to-br from-cyan-400/20 to-blue-400/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 border border-white/20 shadow-lg group-hover:scale-110 transition-all duration-300">
-                <Award className="h-8 w-8 text-cyan-400 drop-shadow-lg" />
+              <div className="h-16 w-16 bg-gradient-to-br from-primary/20 to-primary/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 border border-white/20 shadow-lg group-hover:scale-110 transition-all duration-300">
+                <Award className="h-8 w-8 text-primary drop-shadow-lg" />
               </div>
               <div className="text-3xl font-bold text-white drop-shadow-lg">15+</div>
               <div className="text-sm text-white drop-shadow-md">Certifications</div>
             </div>
             <div className="flex flex-col items-center group">
-              <div className="h-16 w-16 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 border border-white/20 shadow-lg group-hover:scale-110 transition-all duration-300">
-                <Users className="h-8 w-8 text-blue-400 drop-shadow-lg" />
+              <div className="h-16 w-16 bg-gradient-to-br from-primary/20 to-primary/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 border border-white/20 shadow-lg group-hover:scale-110 transition-all duration-300">
+                <Users className="h-8 w-8 text-primary drop-shadow-lg" />
               </div>
               <div className="text-3xl font-bold text-white drop-shadow-lg">1000+</div>
               <div className="text-sm text-white drop-shadow-md">Étudiants formés</div>
             </div>
             <div className="flex flex-col items-center group">
-              <div className="h-16 w-16 bg-gradient-to-br from-cyan-400/20 to-blue-400/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 border border-white/20 shadow-lg group-hover:scale-110 transition-all duration-300">
-                <BookOpen className="h-8 w-8 text-cyan-400 drop-shadow-lg" />
+              <div className="h-16 w-16 bg-gradient-to-br from-primary/20 to-primary/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 border border-white/20 shadow-lg group-hover:scale-110 transition-all duration-300">
+                <BookOpen className="h-8 w-8 text-primary drop-shadow-lg" />
               </div>
               <div className="text-3xl font-bold text-white drop-shadow-lg">95%</div>
               <div className="text-sm text-white drop-shadow-md">Taux de réussite</div>

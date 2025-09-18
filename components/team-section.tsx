@@ -15,7 +15,7 @@ const teamMembers = [
     name: "Babi Kulasingham",
     title: "Directeur du Programme CFA",
     subtitle: "VP Equity Research at Tradition Securities and Futures",
-    image: "/professional-headshot-of-babi-kulasingham--busines.png",
+    image: "/babi-kulasingham-original.jpg",
     description:
       "Fort de son expérience en Equity Research comme Vice Président chez Tradition Securities & Futures et TP ICAP, Babi a pu se forger des compétences multiples et une expertise dans le monde de l'analyse financière, des M&As et des levées de fonds. Chez SupFinance, Babi est en charge du Programme de préparation au CFA.",
     specialties: ["CFA", "Equity Research", "M&A"],
@@ -24,7 +24,7 @@ const teamMembers = [
     name: "Jean-Jacques Jault",
     title: "Directeur du Programme DCG-DSCG",
     subtitle: "Directeur Financier",
-    image: "/professional-headshot-of-jean-jacques-jault--exper.png",
+    image: "/jean-jacques-jault-original.jpg",
     description:
       "Jean-Jacques a plus de 23 ans d'expérience en tant que DAF dans plusieurs groupes et plus de 15 ans d'expérience dans l'enseignement, la formation intra et la préparation aux certifications DCG et DSCG. Il est notamment co-auteur du livre DCG7 Management et chez SupFinance Jean-Jacques est en charge de la préparation au DCG et DSCG ainsi que d'autres certifications courtes propres à FI dans le domaine du Contrôle de Gestion, du management et des systèmes d'information.",
     specialties: ["DCG", "DSCG", "Contrôle de Gestion"],
@@ -33,7 +33,7 @@ const teamMembers = [
     name: "Aymen Essafini",
     title: "Directeur des certifications Data Science et Python for Finance",
     subtitle: "Structurer BNP",
-    image: "/professional-headshot-of-aymen-essafini--quantitat.png",
+    image: "/aymen-essafini-new.jpg",
     description:
       "Doublement diplômé de l'université Paris-Dauphine en mathématiques appliquées à la Finance et du DEA Elkaroui de l'École Polytechnique, Aymen a développé une connaissance pointue des produits financiers. Riche de ses expériences acquises sur différents desks de trading et de structuration au sein de BFI et d'asset manager de grandes renommées, Aymen est un spécialiste des modèles quantitatifs de valorisation des produits exotiques et structurés, de leurs stratégies de couverture et de l'automatisation de leur exécution.",
     specialties: ["Data Science", "Python", "Finance Quantitative"],
@@ -42,7 +42,7 @@ const teamMembers = [
     name: "Olivier Garrigues",
     title: "Directeur de la Certification DAF Digital",
     subtitle: "Directeur Financier",
-    image: "/professional-headshot-of-olivier-garrigues--senior.png",
+    image: "/olivier-garrigues-original.jpg",
     description:
       "Diplômé d'HEC & Sciences Po Paris, Olivier Garrigues a plus de 30 ans d'expérience dans la fonction Finance, dont 14 en tant que Directeur Financier Groupe (Crit, Morgan, Onduline, Pomona), 10 en tant que DAF de filiales ou contrôleur financier de BU de grands groupes (Avis, Pechiney et Alcatel) et 10 au sein de fonctions financières de sièges de grands groupes (Pechiney et Alcatel). Il a débuté sa carrière en tant qu'auditeur financier (PwC). Il a construit sa valeur ajoutée en tant que manager d'experts sachant les aligner sur les enjeux de l'entreprise et comme business Partner impliqué dans la définition de la stratégie et la mesure de performance des groupes dans lesquels il a évolué.",
     specialties: ["DAF Digital", "Management", "Stratégie"],
@@ -51,7 +51,7 @@ const teamMembers = [
     name: "Ian Corns",
     title: "Directeur Associé",
     subtitle: "Conseil & Externalisation de la formation",
-    image: "/professional-headshot-of-ian-corns--business-consu.png",
+    image: "/ian-corns-original.jpg",
     description:
       "Ian CORNS, Directeur associé, pilote l'activité d'externalisation de la formation et certaines propositions de conseil. Ian est par ailleurs CEO de SFDS et à ce titre consultant, professeur, conférencier en stratégie, finance, développement commercial, chaîne d'approvisionnement et logistique. Il représente des entreprises et des centres de P&L pour des sociétés américaines et internationales depuis plus de vingt ans dans la région EMEA. Il a une expertise en Stratégie, Finance, Business Development & Supply Chain Management, en externalisation des ventes et génération de revenus de ventes (pour les start-ups et les sociétés en pré-IPO).",
     specialties: ["Conseil", "Stratégie", "Supply Chain"],
@@ -60,7 +60,7 @@ const teamMembers = [
     name: "Georges Boré",
     title: "Directeur Certification Expérience Client-AGILE",
     subtitle: "Managing Director",
-    image: "/professional-headshot-of-georges-bor---managing-di.png",
+    image: "/georges-bore-original.jpg",
     description:
       "Georges a passé près de 20 ans chez HSBC en tant que Head of Sales et Managing Director en France, en Égypte et au Royaume Uni. Georges est un expert dans le management d'équipes pluridisciplinaires et multiculturelles en mode agile et dans la transformation et l'optimisation de l'expérience client.",
     specialties: ["Expérience Client", "AGILE", "Management"],

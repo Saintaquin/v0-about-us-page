@@ -5,128 +5,48 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import ContactForm from "@/components/contact-form"
 import { Card, CardContent } from "@/components/ui/card"
-import { TrendingUp, Lightbulb, Trophy, Settings, Users, BookOpen, Award, Target } from "lucide-react"
+import { TrendingUp, Lightbulb, Trophy, Settings, Users, BookOpen, Award, Presentation } from "lucide-react"
+import Link from "next/link"
 import { useLanguage } from "@/contexts/language-context"
 
-const services = [
-  {
-    icon: BookOpen,
-    title: "Préparations aux certifications",
-    description:
-      "SUPFINANCE propose des formations courtes et ciblées pour préparer les certifications les plus reconnues du secteur, renforçant ainsi l'employabilité et l'expertise des étudiants et professionnels. Parmi nos préparations : Certification AMF, CFA (CFA Institute), DCG et DSCG, Finance Quantitative, CAMS, Power BI, Cybersécurité, SWIFT, Python, Trading, CIA, ESG, et bien d'autres.",
-    image: "/financial-certification-training-classroom.png",
-  },
-  {
-    icon: Users,
-    title: "Formations Inter et Intra",
-    description:
-      "Nous organisons régulièrement des séminaires et conférences publiques autour de thématiques clés de l'actualité financière, économique et technologique (notamment en data et intelligence artificielle). Nous proposons également des formations sur mesure en intra-entreprise, adaptées aux besoins des entreprises et institutions financières.",
-    image: "/business-conference-seminar-presentation.png",
-  },
-  {
-    icon: Target,
-    title: "Externalisation de la formation",
-    description:
-      "Nous prenons en charge l'ensemble de vos activités de formation, avec l'appui d'un corps de formateurs expérimentés. Notre équipe accompagne votre entreprise dans l'acquisition et le renforcement des compétences de vos collaborateurs, en parfaite adéquation avec vos objectifs métiers.",
-    image: "/corporate-training-outsourcing-business.png",
-  },
-  {
-    icon: Award,
-    title: "Préparations aux concours et tests d'aptitudes",
-    description:
-      "SUPFINANCE vous accompagne dans la préparation aux principaux concours et tests d'aptitude, tels que le TAGE MAGE, le GMAT ou le TOEIC, pour maximiser vos chances de réussite.",
-    image: "/exam-preparation-test-aptitude-study.png",
-  },
-  {
-    icon: TrendingUp,
-    title: "Formations Certifiantes",
-    description:
-      "Boostez votre carrière et développez vos compétences, où que vous soyez, grâce à nos formations 100 % en distanciel, flexibles et certifiantes.",
-    image: "/online-certification-remote-learning.png",
-  },
-  {
-    icon: Lightbulb,
-    title: "Anglais Financier & Comptable",
-    description:
-      "Des formations en anglais financier et comptable, disponibles en cours individuels ou en sessions de groupe, adaptées à tous les niveaux.",
-    image: "/financial-english-language-learning.png",
-  },
-]
-
-const insights = [
-  {
-    icon: TrendingUp,
-    title: "Compétences",
-    description:
-      "Dans un secteur en constante évolution, les compétences en finance et en data doivent sans cesse s'adapter. Face aux avancées technologiques, à l'innovation et aux exigences réglementaires, combler ce gap de compétences est devenu essentiel pour les professionnels comme pour les étudiants.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Savoir-Faire et Faire-Savoir",
-    description:
-      "Le savoir-faire est indispensable, mais ne suffit plus dans le domaine de la formation. Le faire-savoir, à travers une stratégie pédagogique personnalisée et adaptée, devient essentiel pour garantir l'efficacité et l'impact des apprentissages.",
-  },
-  {
-    icon: Trophy,
-    title: "Compétitivité",
-    description:
-      "De plus en plus d'étudiants complètent leur cursus par des formations et certifications complémentaires afin de renforcer leur CV et d'augmenter leurs chances de décrocher un stage, une alternance ou un emploi à la hauteur de leurs ambitions.",
-  },
-  {
-    icon: Settings,
-    title: "À la carte",
-    description:
-      "First Institute innove avec une offre à la carte basée sur la méthode du pooling, qui mutualise les ressources pour réduire les coûts et proposer une alternative économique au coaching individuel.",
-  },
-]
-
 export default function Home() {
-  const { t } = useLanguage()
-
+  const { t, language } = useLanguage()
   const heroRef = useRef<HTMLDivElement>(null)
   const servicesRef = useRef<HTMLDivElement>(null)
   const insightsRef = useRef<HTMLDivElement>(null)
 
-  const servicesTranslated = [
+  const services = [
     {
       icon: BookOpen,
+      title: t("services.certifying.title"),
+      description: t("services.certifying.description"),
+      image: "/formations.png",
+      href: "/formations-supfinance",
+    },
+    {
+      icon: Award,
       title: t("services.certifications.title"),
       description: t("services.certifications.description"),
-      image: "/professional-certification-study-materials.jpg",
+      image: "/certifications.png",
+      href: "/certifications",
     },
     {
       icon: Users,
       title: t("services.interIntra.title"),
       description: t("services.interIntra.description"),
-      image: "/business-conference-seminar-presentation.png",
+      image: "/formations-intra.jpg",
+      href: "/formations-supfinance",
     },
     {
-      icon: Target,
-      title: t("services.outsourcing.title"),
-      description: t("services.outsourcing.description"),
-      image: "/corporate-training-outsourcing-business.png",
-    },
-    {
-      icon: Award,
-      title: t("services.exams.title"),
-      description: t("services.exams.description"),
-      image: "/exam-preparation-test-aptitude-study.png",
-    },
-    {
-      icon: TrendingUp,
-      title: t("services.certifying.title"),
-      description: t("services.certifying.description"),
-      image: "/online-certification-remote-learning.png",
-    },
-    {
-      icon: Lightbulb,
-      title: t("services.english.title"),
-      description: t("services.english.description"),
-      image: "/business-english-financial-accounting-training.jpg",
+      icon: Presentation,
+      title: t("services.conferences.title"),
+      description: t("services.conferences.description"),
+      image: "/conferences.jpg",
+      href: "/formations-supfinance",
     },
   ]
 
-  const insightsTranslated = [
+  const insights = [
     {
       icon: TrendingUp,
       title: t("insights.skills.title"),
@@ -190,7 +110,7 @@ export default function Home() {
       {/* Hero Section with Parallax */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div ref={heroRef} className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-blue-600" />
-        <div className="absolute inset-0 bg-[url('/modern-finance-office-building-glass-architecture.png')] bg-cover bg-center opacity-25" />
+        <div className="absolute inset-0 bg-[url('/modern-finance-office-building-glass-architecture.png')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-primary/40" />
 
         <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
@@ -198,12 +118,12 @@ export default function Home() {
             <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-white to-cyan-200 bg-clip-text text-transparent">
               {t("hero.title")}
             </h1>
-            <div className="h-1 w-32 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto mb-8 rounded-full" />
-            <p className="text-2xl md:text-4xl font-light mb-12 text-slate-800 drop-shadow-lg">{t("hero.subtitle")}</p>
+            <div className="h-1 w-32 bg-gradient-to-r from-primary to-blue-500 mx-auto mb-8 rounded-full" />
+            <p className="text-2xl md:text-4xl font-light mb-12 text-white drop-shadow-lg">{t("hero.subtitle")}</p>
           </div>
 
           <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-300">
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-slate-700 drop-shadow-md">
+            <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-white drop-shadow-md">
               {t("hero.description")}
             </p>
           </div>
@@ -226,39 +146,52 @@ export default function Home() {
       <section ref={servicesRef} className="py-32 bg-gradient-to-b from-background to-muted/30">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-20 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-            <h2 className="text-5xl font-bold text-foreground mb-6">{t("services.title")}</h2>
+            <h2 className="text-5xl font-bold text-foreground mb-6">
+              {t("services.title")
+                .split(" ")
+                .map((word, index) =>
+                  index === 1 ? (
+                    <span key={index} className="text-primary">
+                      {word}
+                    </span>
+                  ) : (
+                    word + " "
+                  ),
+                )}
+            </h2>
             <div className="h-1 w-24 bg-gradient-to-r from-primary to-blue-500 mx-auto mb-8 rounded-full" />
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t("services.subtitle")}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {servicesTranslated.map((service, index) => {
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <Card
-                  key={service.title}
-                  className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-on-scroll opacity-0 translate-y-8 border-0 bg-white/80 backdrop-blur-sm overflow-hidden"
-                  style={{ animationDelay: `${index * 150}ms` }}
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={service.image || "/placeholder.svg"}
-                      alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute top-4 left-4 w-12 h-12 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-500">
-                      <Icon className="w-6 h-6" />
+                <Link key={service.title} href={service.href}>
+                  <Card
+                    className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-on-scroll opacity-0 translate-y-8 border-0 bg-white/80 backdrop-blur-sm overflow-hidden cursor-pointer h-full"
+                    style={{ animationDelay: `${index * 150}ms` }}
+                  >
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={service.image || "/placeholder.svg"}
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-4 left-4 w-12 h-12 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                        <Icon className="w-6 h-6" />
+                      </div>
                     </div>
-                  </div>
 
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-                  </CardContent>
-                </Card>
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300 underline decoration-primary decoration-2 underline-offset-4">
+                        {service.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
               )
             })}
           </div>
@@ -276,25 +209,35 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center mb-20 animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
-            <h2 className="text-5xl font-bold text-foreground mb-6">{t("insights.title")}</h2>
+            <h2 className="text-5xl font-bold text-foreground mb-6">
+              {t("insights.title")
+                .split(" ")
+                .map((word, index) =>
+                  index === 1 ? (
+                    <span key={index} className="text-primary">
+                      {word}
+                    </span>
+                  ) : (
+                    word + " "
+                  ),
+                )}
+            </h2>
             <div className="h-1 w-24 bg-gradient-to-r from-primary to-blue-500 mx-auto mb-8 rounded-full" />
-            <div className="max-w-4xl mx-auto space-y-6 text-lg text-slate-700">
+            <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground">
               <p>{t("insights.intro1")}</p>
               <p>{t("insights.intro2")}</p>
               <p>{t("insights.intro3")}</p>
-              <div className="bg-primary/10 border border-primary/20 rounded-lg p-6 mt-8">
-                <p className="text-primary font-semibold text-xl">{t("insights.mission")}</p>
-              </div>
+              <p className="text-primary font-semibold text-xl">{t("insights.mission")}</p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {insightsTranslated.map((insight, index) => {
+            {insights.map((insight, index) => {
               const Icon = insight.icon
               return (
                 <Card
                   key={insight.title}
-                  className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-on-scroll opacity-0 translate-y-8 bg-white border border-slate-200 overflow-hidden"
+                  className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-on-scroll opacity-0 translate-y-8 bg-white/90 backdrop-blur-sm border-0 overflow-hidden"
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
                   <CardContent className="p-8 relative">
@@ -305,10 +248,10 @@ export default function Home() {
                         <Icon className="w-8 h-8 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-primary transition-colors duration-300">
+                        <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
                           {insight.title}
                         </h3>
-                        <p className="text-slate-700 leading-relaxed">{insight.description}</p>
+                        <p className="text-muted-foreground leading-relaxed">{insight.description}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -319,8 +262,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <ContactForm />
+      {/* Contact Section */}
+      <div id="contact">
+        <ContactForm />
+      </div>
 
       <Footer />
 

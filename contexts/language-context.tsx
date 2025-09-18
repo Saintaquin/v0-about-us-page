@@ -31,21 +31,24 @@ const translations = {
     "services.title": "Nos Services",
     "services.subtitle":
       "Découvrez notre gamme complète de formations et services adaptés à vos besoins professionnels",
-    "services.certifications.title": "Préparations aux certifications",
+    "services.certifications.title": "Certifications",
     "services.certifications.description":
       "SUPFINANCE propose des formations courtes et ciblées pour préparer les certifications les plus reconnues du secteur, renforçant ainsi l'employabilité et l'expertise des étudiants et professionnels. Parmi nos préparations : Certification AMF, CFA (CFA Institute), DCG et DSCG, Finance Quantitative, CAMS, Power BI, Cybersécurité, SWIFT, Python, Trading, CIA, ESG, et bien d'autres.",
-    "services.interIntra.title": "Formations Inter et Intra",
+    "services.interIntra.title": "Formations Intra",
     "services.interIntra.description":
-      "Nous organisons régulièrement des séminaires et conférences publiques autour de thématiques clés de l'actualité financière, économique et technologique (notamment en data et intelligence artificielle). Nous proposons également des formations sur mesure en intra-entreprise, adaptées aux besoins des entreprises et institutions financières.",
+      "Boostez les compétences de vos équipes avec nos formations intra-entreprise conduites par nos experts formateurs dans tous les domaines de la finance (expert comptable, DAF, avocat d'affaires, gérant de portefeuille, risk manager, structureur, responsable conformité, expert LAB, expert en ESG reporting…). Conçues exclusivement pour vos collaborateurs, elles se déroulent dans vos locaux, dans un lieu de votre choix, dans nos espaces ou en distanciel.",
     "services.outsourcing.title": "Externalisation de la formation",
     "services.outsourcing.description":
       "Nous prenons en charge l'ensemble de vos activités de formation, avec l'appui d'un corps de formateurs expérimentés. Notre équipe accompagne votre entreprise dans l'acquisition et le renforcement des compétences de vos collaborateurs, en parfaite adéquation avec vos objectifs métiers.",
     "services.exams.title": "Préparations aux concours et tests d'aptitudes",
     "services.exams.description":
       "SUPFINANCE vous accompagne dans la préparation aux principaux concours et tests d'aptitude, tels que le TAGE MAGE, le GMAT ou le TOEIC, pour maximiser vos chances de réussite.",
-    "services.certifying.title": "Formations Certifiantes",
+    "services.certifying.title": "Formations",
     "services.certifying.description":
       "Boostez votre carrière et développez vos compétences, où que vous soyez, grâce à nos formations 100 % en distanciel, flexibles et certifiantes.",
+    "services.conferences.title": "Conférences",
+    "services.conferences.description":
+      "SupFinance organise des conférences dans le monde entier sur tous les domaines de la finance. Elle rassemble les principaux acteurs du marché dans des domaines financiers spécifiques, tels que les prêts, le financement d'acquisitions, le financement de projets, les levées de fonds, le financement du commerce extérieur, les produits dérivés, la dette à haut rendement, l'investissement, la finance durable, le financement structuré, le trade finance, et le Private Equity.",
     "services.english.title": "Anglais Financier & Comptable",
     "services.english.description":
       "Des formations en anglais financier et comptable, disponibles en cours individuels ou en sessions de groupe, adaptées à tous les niveaux.",
@@ -111,21 +114,24 @@ const translations = {
     // Services Section
     "services.title": "Our Services",
     "services.subtitle": "Discover our complete range of training and services adapted to your professional needs",
-    "services.certifications.title": "Certification Preparation",
+    "services.certifications.title": "Certifications",
     "services.certifications.description":
       "SUPFINANCE offers short and targeted training courses to prepare for the most recognized certifications in the sector, thus strengthening the employability and expertise of students and professionals. Among our preparations: AMF Certification, CFA (CFA Institute), DCG and DSCG, Quantitative Finance, CAMS, Power BI, Cybersecurity, SWIFT, Python, Trading, CIA, ESG, and many others.",
-    "services.interIntra.title": "Inter and Intra-company Training",
+    "services.interIntra.title": "Intra-company Training",
     "services.interIntra.description":
-      "We regularly organize public seminars and conferences around key themes of financial, economic and technological news (particularly in data and artificial intelligence). We also offer tailor-made intra-company training, adapted to the needs of companies and financial institutions.",
+      "Boost your teams' skills with our intra-company training conducted by our expert trainers in all areas of finance (chartered accountant, CFO, business lawyer, portfolio manager, risk manager, structurer, compliance officer, LAB expert, ESG reporting expert…). Designed exclusively for your employees, they take place in your premises, in a location of your choice, in our spaces or remotely.",
     "services.outsourcing.title": "Training Outsourcing",
     "services.outsourcing.description":
       "We take charge of all your training activities, with the support of a team of experienced trainers. Our team supports your company in acquiring and strengthening the skills of your employees, in perfect alignment with your business objectives.",
     "services.exams.title": "Competition and Aptitude Test Preparation",
     "services.exams.description":
       "SUPFINANCE accompanies you in preparing for the main competitions and aptitude tests, such as TAGE MAGE, GMAT or TOEIC, to maximize your chances of success.",
-    "services.certifying.title": "Certifying Training",
+    "services.certifying.title": "Training",
     "services.certifying.description":
       "Boost your career and develop your skills, wherever you are, thanks to our 100% remote, flexible and certifying training courses.",
+    "services.conferences.title": "Conferences",
+    "services.conferences.description":
+      "SupFinance organizes conferences worldwide on all areas of finance. It brings together key market players in specific financial domains, such as loans, acquisition financing, project financing, fundraising, foreign trade financing, derivatives, high-yield debt, investment, sustainable finance, structured financing, trade finance, and Private Equity.",
     "services.english.title": "Financial & Accounting English",
     "services.english.description":
       "Financial and accounting English training, available in individual courses or group sessions, adapted to all levels.",
@@ -190,8 +196,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang)
     localStorage.setItem("language", lang)
-    // Update document language
-    document.documentElement.lang = lang
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = lang
+    }
   }
 
   const t = (key: string): string => {

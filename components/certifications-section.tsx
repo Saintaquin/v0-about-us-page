@@ -4,36 +4,21 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import Link from "next/link"
-import {
-  GraduationCap,
-  Shield,
-  TrendingUp,
-  Users,
-  Lock,
-  Eye,
-  Calculator,
-  Search,
-  CreditCard,
-  AlertTriangle,
-  Building,
-} from "lucide-react"
+import { Shield, TrendingUp, Calculator, Search, AlertTriangle, BarChart3, Leaf, Building } from "lucide-react"
 
 const certifications = [
   {
-    title: "Certification CFA (Chartered Financial Analyst)",
+    title: "Préparation à la Certification CFA (Chartered Financial Analyst)",
     subtitle: "Level 1, 2 et 3 du CFA Institute",
     description:
       "Formation hybride (présentiel et distanciel) pour préparer les trois niveaux de la certification CFA, la référence mondiale en analyse financière.",
-    price: "1 500€ par niveau",
-    features: ["Payable en plusieurs fois", "Inscription toute l'année", "Formation hybride"],
     icon: TrendingUp,
     color: "bg-cyan-500",
     logo: "/logos/cfa-logo.png",
     featured: true,
   },
   {
-    title: "Certification FRM (Financial Risk Manager)",
+    title: "Préparation à la Certification FRM (Financial Risk Manager)",
     subtitle: "de GARP",
     description: "Préparation complète à la certification de référence en gestion des risques financiers.",
     icon: Shield,
@@ -41,7 +26,7 @@ const certifications = [
     logo: "/logos/garp-frm-logo.png",
   },
   {
-    title: "Certification CAMS",
+    title: "Préparation à la Certification CAMS",
     subtitle: "Lutte contre le blanchiment",
     description: "Formation spécialisée dans la lutte contre le blanchiment d'argent et le financement du terrorisme.",
     icon: Search,
@@ -49,31 +34,34 @@ const certifications = [
     logo: "/logos/cams-logo.png",
   },
   {
-    title: "Certification Audit IT (ISACA-CISA)",
-    subtitle: "Certified Information Systems Auditor",
-    description: "Certification reconnue mondialement pour les professionnels de l'audit des systèmes d'information.",
-    icon: Eye,
+    title: "Préparation à la Certification Power-BI",
+    subtitle: "Microsoft Power BI Data Analyst",
+    description:
+      "Formation complète pour maîtriser Power BI et préparer la certification Microsoft PL-300 en analyse de données et visualisation.",
+    icon: BarChart3,
     color: "bg-blue-500",
-    logo: "/logos/isaca-cisa-logo.png",
+    logo: "/logos/power-bi-logo.jpg",
   },
   {
-    title: "Certification en Cybersécurité (ISC2-CISSP)",
-    subtitle: "Certified Information Systems Security Professional",
-    description: "La certification de référence pour les professionnels de la sécurité informatique.",
-    icon: Lock,
-    color: "bg-blue-500",
-    logo: "/logos/isc2-cissp-logo.png",
+    title: "Préparation à la Certification Sustainable Investing",
+    subtitle: "CFA Institute Certificate in ESG Investing",
+    description:
+      "Formation spécialisée dans l'investissement durable et responsable, couvrant les critères ESG et l'intégration des facteurs environnementaux, sociaux et de gouvernance.",
+    icon: Leaf,
+    color: "bg-green-500",
+    logo: "/logos/sustainable-investing-logo.jpg",
   },
   {
-    title: "Certification Privacy (IAPP-CIPP/E)",
-    subtitle: "Certified Information Privacy Professional",
-    description: "Expertise en protection des données personnelles et conformité RGPD.",
-    icon: Shield,
+    title: "Préparation à la Certification AMF",
+    subtitle: "Autorité des Marchés Financiers",
+    description:
+      "Formation pour obtenir la certification AMF obligatoire pour exercer dans le conseil en investissement financier et la gestion de portefeuille en France.",
+    icon: Building,
     color: "bg-blue-500",
-    logo: "/logos/iapp-cipp-logo.png",
+    logo: "/logos/amf-logo.jpg",
   },
   {
-    title: "DCG et DSCG",
+    title: "Préparation à la DCG et DSCG",
     subtitle: "Diplômes de Comptabilité et de Gestion",
     description: "Préparation aux diplômes d'État en comptabilité et gestion d'entreprise.",
     icon: Calculator,
@@ -81,40 +69,7 @@ const certifications = [
     logo: "/logos/dcg-dscg-logo.png",
   },
   {
-    title: "Certification ESG Investing",
-    subtitle: "Investissement Responsable",
-    description: "Formation aux critères environnementaux, sociaux et de gouvernance dans l'investissement.",
-    icon: GraduationCap,
-    color: "bg-blue-500",
-    logo: "/logos/esg-investing-logo.png",
-  },
-  {
-    title: "Certification CIA (Certified Internal Auditor)",
-    subtitle: "Auditeur Interne Certifié",
-    description: "La certification de référence mondiale pour les professionnels de l'audit interne.",
-    icon: Users,
-    color: "bg-blue-500",
-    logo: "/logos/cia-logo.png",
-  },
-  {
-    title: "Certification SWIFT-CSP",
-    subtitle: "Certified Assessor",
-    description: "Certification pour les évaluateurs des contrôles de sécurité SWIFT.",
-    icon: Building,
-    color: "bg-blue-500",
-    logo: "/logos/swift-csp-logo.png",
-  },
-  {
-    title: "Certification QSA PCIDSS",
-    subtitle: "Qualified Security Assessor",
-    description:
-      "Certification pour l'évaluation de la conformité aux standards de sécurité des données de cartes de paiement.",
-    icon: CreditCard,
-    color: "bg-blue-500",
-    logo: "/logos/pci-qsa-logo.png",
-  },
-  {
-    title: "Certification CFE (Certified Fraud Examiner)",
+    title: "Préparation à la Certification CFE (Certified Fraud Examiner)",
     subtitle: "Examinateur de Fraude Certifié",
     description: "Formation spécialisée dans la détection et la prévention de la fraude financière.",
     icon: AlertTriangle,
@@ -179,6 +134,7 @@ export default function CertificationsSection() {
                 <CardContent className="space-y-4">
                   <p className="text-sm text-muted-foreground leading-relaxed">{cert.description}</p>
 
+                  {/* Removed price and features for CFA certification */}
                   {cert.price && (
                     <div className="p-4 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg border border-cyan-100">
                       <div className="text-2xl font-bold text-cyan-700 mb-2">{cert.price}</div>
@@ -215,9 +171,8 @@ export default function CertificationsSection() {
             <Button
               size="lg"
               className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8"
-              asChild
             >
-              <Link href="#contact">Nous contacter</Link>
+              En savoir plus
             </Button>
           </div>
         </div>

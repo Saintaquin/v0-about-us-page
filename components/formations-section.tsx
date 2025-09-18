@@ -3,7 +3,6 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { BookOpen, Code, TrendingUp, Calculator, FileSpreadsheet, Users } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
 
 const formations = [
   {
@@ -38,7 +37,7 @@ const formations = [
     category: "Programmation",
     level: "Tous niveaux",
     duration: "36h par niveau",
-    price: "900€",
+    price: "Sur devis",
     featured: true,
   },
   {
@@ -173,9 +172,6 @@ export default function FormationsSection() {
             parcours professionnel.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-cyan-600 hover:bg-gray-100 font-semibold" asChild>
-              <Link href="#contact">Nous contacter</Link>
-            </Button>
             <Button
               size="lg"
               variant="outline"
