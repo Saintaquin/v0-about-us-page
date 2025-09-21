@@ -1,33 +1,32 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
+import React from "react"
+import { useForm, ValidationError } from "@formspree/react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, Phone, Send } from "lucide-react"
+import { Mail, Phone, Send, CheckCircle2 } from "lucide-react"
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  })
+  // Remplace par un env var si tu veux: process.env.NEXT_PUBLIC_FORMSPREE_ID
+  const formId = "xanpwndb" // depuis ton PDF/Formspree :contentReference[oaicite:1]{index=1}
+  const [state, handleSubmit] = useForm(formId)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+  if (state.succeeded) {
+    return (
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-primary/5">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <Card className="border-0 shadow-xl">
+            <CardHeader className="text-center">
+              <CheckCircle2 className="mx-auto mb-2 h-10 w-10 text-green-600" />
+              <CardTitle className="text-2xl">Message envoyé ✅</CardTitle>
+              <CardDescription>Merci ! Nous revenons vers vous au plus vite.</CardDescription>
+            </CardHeader>
+          </Card>
+        </div>
+      </section>
+    )
   }
 
   return (
@@ -66,8 +65,8 @@ export default function ContactForm() {
                     <p className="text-slate-700">+33 6 68 50 35 90</p>
                   </div>
                 </div>
-              </div> {/* <-- ferme .space-y-6 */}
-            </div> {/* <-- ferme le bloc qui contient le titre et la liste */}
+              </div>
+            </div>
 
             <div className="bg-gradient-to-r from-primary to-primary/90 rounded-xl p-6 text-white">
               <h4 className="font-semibold mb-2">Formations sur mesure</h4>
@@ -80,7 +79,7 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Contact Form (Formspree) */}
           <Card className="shadow-xl border-0">
             <CardHeader>
               <CardTitle className="text-2xl text-slate-900">Envoyez-nous un message</CardTitle>
@@ -89,37 +88,20 @@ export default function ContactForm() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
                       Nom complet *
                     </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="border-slate-300 focus:border-primary focus:ring-primary"
-                      placeholder="Votre nom"
-                    />
+                    <Input id="name" name="name" type="text" required placeholder="Votre nom" />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
                       Email *
                     </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="border-slate-300 focus:border-primary focus:ring-primary"
-                      placeholder="votre@email.com"
-                    />
+                    <Input id="email" name="email" type="email" required placeholder="votre@email.com" />
+                    <ValidationError prefix="Email" field="email" errors={state.errors} />
                   </div>
                 </div>
 
@@ -128,30 +110,13 @@ export default function ContactForm() {
                     <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-2">
                       Téléphone
                     </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="border-slate-300 focus:border-primary focus:ring-primary"
-                      placeholder="+33 1 23 45 67 89"
-                    />
+                    <Input id="phone" name="phone" type="tel" placeholder="+33 1 23 45 67 89" />
                   </div>
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-slate-700 mb-2">
                       Sujet *
                     </label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      type="text"
-                      required
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className="border-slate-300 focus:border-primary focus:ring-primary"
-                      placeholder="Objet de votre demande"
-                    />
+                    <Input id="subject" name="subject" type="text" required placeholder="Objet de votre demande" />
                   </div>
                 </div>
 
@@ -159,24 +124,30 @@ export default function ContactForm() {
                   <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
                     Message *
                   </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="border-slate-300 focus:border-primary focus:ring-primary"
-                    placeholder="Décrivez votre projet ou vos besoins en formation..."
-                  />
+                  <Textarea id="message" name="message" required rows={5} placeholder="Décrivez votre projet..." />
+                  <ValidationError prefix="Message" field="message" errors={state.errors} />
+                </div>
+
+                {/* Honeypot anti-spam (champ caché) */}
+                <input type="text" name="company" className="hidden" tabIndex={-1} autoComplete="off" />
+
+                {/* Optionnel : page de redirection après succès (gérée côté Formspree) */}
+                {/* <input type="hidden" name="_redirect" value="https://ton-domaine.com/merci" /> */}
+
+                <div aria-live="polite" className="text-sm text-slate-600">
+                  {state.submitting && "Envoi en cours..."}
+                  {state.errors && state.errors.length > 0 && (
+                    <span className="text-red-600"> | Merci de vérifier les champs en rouge.</span>
+                  )}
                 </div>
 
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105"
+                  disabled={state.submitting}
+                  className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 disabled:opacity-70"
                 >
                   <Send className="w-5 h-5 mr-2" />
-                  Envoyer le message
+                  {state.submitting ? "Envoi..." : "Envoyer le message"}
                 </Button>
               </form>
             </CardContent>
@@ -186,4 +157,5 @@ export default function ContactForm() {
     </section>
   )
 }
+
 
