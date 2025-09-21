@@ -39,15 +39,6 @@ const teamMembers = [
     specialties: ["Data Science", "Python", "Finance Quantitative"],
   },
   {
-    name: "Olivier Garrigues",
-    title: "Directeur de la Certification DAF Digital",
-    subtitle: "Directeur Financier",
-    image: "/olivier-garrigues-original.jpg",
-    description:
-      "Diplômé d'HEC & Sciences Po Paris, Olivier Garrigues a plus de 30 ans d'expérience dans la fonction Finance, dont 14 en tant que Directeur Financier Groupe (Crit, Morgan, Onduline, Pomona), 10 en tant que DAF de filiales ou contrôleur financier de BU de grands groupes (Avis, Pechiney et Alcatel) et 10 au sein de fonctions financières de sièges de grands groupes (Pechiney et Alcatel). Il a débuté sa carrière en tant qu'auditeur financier (PwC). Il a construit sa valeur ajoutée en tant que manager d'experts sachant les aligner sur les enjeux de l'entreprise et comme business Partner impliqué dans la définition de la stratégie et la mesure de performance des groupes dans lesquels il a évolué.",
-    specialties: ["DAF Digital", "Management", "Stratégie"],
-  },
-  {
     name: "Ian Corns",
     title: "Directeur Associé",
     subtitle: "Conseil & Externalisation de la formation",

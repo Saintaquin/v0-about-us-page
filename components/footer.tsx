@@ -14,7 +14,7 @@ export default function Footer() {
               <span className="text-xl font-bold">SupFinance</span>
             </div>
             <p className="text-background/95 mb-6 max-w-md">
-              Organisme de formation spécialisé dans les préparations aux certifications reconnues dans le
+              Organisme de formation spécialisé dans les préparations aux certifications les plus reconnues dans le
               monde de la finance.
             </p>
             <div className="space-y-2">
@@ -24,7 +24,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-primary" />
-                <span className="text-background/95">+33 6 68 50 35 90</span>
+                <span className="text-background/95">+33 1 23 45 67 89</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4 text-primary" />
@@ -38,7 +38,7 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Certifications</h3>
             <ul className="space-y-2">
               <li>
-                <span className="text-background/90">CFA (CFA Institute)</span>
+                <span className="text-background/90">CFA Institute</span>
               </li>
               <li>
                 <span className="text-background/90">DCG / DSCG</span>
@@ -57,7 +57,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-background/20 mt-12 pt-8 text-center">
-          <p className="text-background/80">© 2025 SupFinance. Tous droits réservés.</p>
+          <p className="text-background/80">© 2024 SupFinance. Tous droits réservés.</p>
         </div>
       </div>
     </footer>

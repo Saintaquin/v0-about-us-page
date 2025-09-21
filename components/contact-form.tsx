@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, Phone, Send } from "lucide-react"
+import { Mail, Phone, MapPin, Send } from "lucide-react"
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -21,6 +21,7 @@ export default function ContactForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log("Form submitted:", formData)
+    // Handle form submission here
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -36,8 +37,8 @@ export default function ContactForm() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">Contactez-nous</h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Vous avez des questions sur nos formations ? Notre équipe d&apos;experts est là pour vous accompagner
-            dans votre projet professionnel.
+            Vous avez des questions sur nos formations ? Notre équipe d'experts est là pour vous accompagner dans votre
+            projet professionnel.
           </p>
         </div>
 
@@ -53,7 +54,8 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-slate-900">Email</h4>
-                    <p className="text-slate-700">contact@supfinance.com</p>
+                    <p className="text-slate-700">contact@supfinance.fr</p>
+                    <p className="text-slate-700">formations@supfinance.fr</p>
                   </div>
                 </div>
 
@@ -63,16 +65,28 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-slate-900">Téléphone</h4>
-                    <p className="text-slate-700">+33 6 68 50 35 90</p>
+                    <p className="text-slate-700">+33 1 23 45 67 89</p>
+                    <p className="text-sm text-slate-700">Lun-Ven 9h-18h</p>
                   </div>
                 </div>
-              </div> {/* <-- ferme .space-y-6 */}
-            </div> {/* <-- ferme le bloc qui contient le titre et la liste */}
+
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900">Adresse</h4>
+                    <p className="text-slate-700">123 Avenue de la Finance</p>
+                    <p className="text-slate-700">75001 Paris, France</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div className="bg-gradient-to-r from-primary to-primary/90 rounded-xl p-6 text-white">
               <h4 className="font-semibold mb-2">Formations sur mesure</h4>
               <p className="text-primary-foreground/90 mb-4">
-                Besoin d&apos;une formation adaptée à votre entreprise ? Contactez-nous pour un devis personnalisé.
+                Besoin d'une formation adaptée à votre entreprise ? Contactez-nous pour un devis personnalisé.
               </p>
               <Button variant="secondary" size="sm">
                 Demander un devis
@@ -186,4 +200,3 @@ export default function ContactForm() {
     </section>
   )
 }
-

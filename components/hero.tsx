@@ -42,7 +42,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-lg sm:text-xl text-white mb-8 max-w-3xl mx-auto text-pretty drop-shadow-lg">
-            Organisme de formation spécialisé dans les préparations aux certifications reconnues dans le monde
+            Organisme de formation spécialisé dans les préparations aux certifications les plus reconnues dans le monde
             de la finance. Formations en présentiel et distanciel.
           </p>
 
