@@ -25,7 +25,7 @@ const translations = {
     "hero.title": "SupFinance",
     "hero.subtitle": "L'excellence en Finance",
     "hero.description":
-      "Organisme de formation spécialisé dans les préparations aux certifications les plus reconnues dans le monde de la finance",
+      "Organisme de formation spécialisé dans les préparations aux certifications reconnues dans le monde de la finance",
 
     // Services Section
     "services.title": "Nos Services",
