@@ -54,8 +54,7 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-slate-900">Email</h4>
-                    <p className="text-slate-700">contact@supfinance.fr</p>
-                    <p className="text-slate-700">formations@supfinance.fr</p>
+                    <p className="text-slate-700">contact@supfinance.com</p>
                   </div>
                 </div>
 
@@ -65,23 +64,10 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-slate-900">Téléphone</h4>
-                    <p className="text-slate-700">+33 1 23 45 67 89</p>
-                    <p className="text-sm text-slate-700">Lun-Ven 9h-18h</p>
+                    <p className="text-slate-700">+33 6 68 50 35 90</p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-900">Adresse</h4>
-                    <p className="text-slate-700">123 Avenue de la Finance</p>
-                    <p className="text-slate-700">75001 Paris, France</p>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <div className="bg-gradient-to-r from-primary to-primary/90 rounded-xl p-6 text-white">
               <h4 className="font-semibold mb-2">Formations sur mesure</h4>
