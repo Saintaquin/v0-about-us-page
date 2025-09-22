@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import Link from "next/link"
 
 const teamMembers = [
   {
@@ -79,22 +80,19 @@ export default function TeamSection() {
           {teamMembers.map((member, index) => (
             <Card
               key={index}
-              className="group hover:shadow-2xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm overflow-hidden"
+              className="group hover:shadow-2xl transition-all duration-300 border-0 rounded-xl overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white""
             >
               <CardContent className="p-0">
                 <div className="flex flex-col md:flex-row">
                   {/* Image */}
-                  <div className="md:w-1/3 relative overflow-hidden">
-                    <img
-                      src={member.image || "/placeholder.svg"}
-                      alt={member.name}
-                      className={`w-full h-64 md:h-full group-hover:scale-105 transition-transform duration-300 ${
-                        member.name === "Foued Ayari, PhD" ? "object-cover object-center-top" : "object-cover"
-                      }`}
-                      style={member.name === "Foued Ayari, PhD" ? { objectPosition: "center 20%" } : {}}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
+                  <div className="md:w-1/3 flex justify-center items-center p-6">
+  <img
+    src={member.image || "/placeholder.svg"}
+    alt={member.name}
+    className="w-40 h-70 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform duration-300"
+  />
+</div>
+
 
                   {/* Content */}
                   <div className="md:w-2/3 p-6 md:p-8">
@@ -137,7 +135,7 @@ export default function TeamSection() {
               professionnels dans le domaine de la finance.
             </p>
             <button className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              Découvrir nos formations
+             <Link href="/a-propos-de-nous#contact"> Découvrir nos formations </Link>
             </button>
           </div>
         </div>

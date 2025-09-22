@@ -30,6 +30,19 @@ export default function Footer() {
                 <MapPin className="h-4 w-4 text-primary" />
                 <span className="text-background/95">Paris, France</span>
               </div>
+              <a 
+                href="https://firstinstitute.fr" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center space-x-2 hover:underline"
+              >
+                <MapPin className="h-4 w-4 text-primary" />
+                <span className="text-background/95">SAS : First Institute</span>
+              </a>
+              <div className="flex items-center space-x-2">
+                <MapPin className="h-4 w-4 text-primary" />
+                <span className="text-background/95">SIREN : 981 762 941</span>
+              </div>
             </div>
           </div>
 
