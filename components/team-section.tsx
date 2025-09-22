@@ -61,17 +61,14 @@ const teamMembers = [
 
 export default function TeamSection() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-balance">Notre équipe</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Notre équipe</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed text-pretty">
-            Notre équipe (non exhaustive ici) est composée de professionnels hautement qualifiés et motivés, qui sont
-            tous experts dans leur domaine. Forts de nombreuses années d'expérience dans leur secteur et dans la
-            formation, ils possèdent l'expertise et la pédagogie nécessaires à votre construction en terme de
-            compétences professionnelles et opérationnelles.
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Notre équipe est composée de professionnels hautement qualifiés et motivés...
           </p>
         </div>
 
@@ -80,29 +77,26 @@ export default function TeamSection() {
           {teamMembers.map((member, index) => (
             <Card
               key={index}
-              className="group hover:shadow-2xl transition-all duration-300 border-0 rounded-xl overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white""
+              className="group hover:shadow-2xl transition-all duration-300 border-0 rounded-xl overflow-hidden 
+                         bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white"
             >
-              <CardContent className="p-0">
-                <div className="flex flex-col md:flex-row">
-                  {/* Image */}
-                  <div className="md:w-1/3 flex justify-center items-center p-6">
-  <img
-    src={member.image || "/placeholder.svg"}
-    alt={member.name}
-    className="w-40 h-70 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform duration-300"
-  />
-</div>
-
+              <CardContent className="p-6">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+                  {/* Image ronde */}
+                  <img
+                    src={member.image || "/placeholder.svg"}
+                    alt={member.name}
+                    className="w-32 h-45 rounded-full object-cover border-4 border-gray-700 shadow-lg 
+                               group-hover:scale-105 transition-transform duration-300"
+                  />
 
                   {/* Content */}
-                  <div className="md:w-2/3 p-6 md:p-8">
-                    <div className="mb-4">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-cyan-600 transition-colors duration-300">
-                        {member.name}
-                      </h3>
-                      <p className="text-lg font-semibold text-cyan-600 mb-1">{member.title}</p>
-                      {member.subtitle && <p className="text-sm text-gray-500 italic">{member.subtitle}</p>}
-                    </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold mb-2 group-hover:text-cyan-400 transition-colors duration-300">
+                      {member.name}
+                    </h3>
+                    <p className="text-lg font-semibold text-cyan-400 mb-1">{member.title}</p>
+                    {member.subtitle && <p className="text-sm text-gray-300 italic mb-3">{member.subtitle}</p>}
 
                     {/* Specialties */}
                     <div className="flex flex-wrap gap-2 mb-4">
@@ -110,7 +104,8 @@ export default function TeamSection() {
                         <Badge
                           key={idx}
                           variant="secondary"
-                          className="bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-700 border-cyan-200 hover:from-cyan-200 hover:to-blue-200 transition-colors duration-200"
+                          className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white border-0 shadow-md 
+                                     hover:from-cyan-500 hover:to-blue-500 transition-colors duration-200"
                         >
                           {specialty}
                         </Badge>
@@ -118,7 +113,7 @@ export default function TeamSection() {
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-600 leading-relaxed text-sm">{member.description}</p>
+                    <p className="text-gray-200 leading-relaxed text-sm">{member.description}</p>
                   </div>
                 </div>
               </CardContent>
@@ -131,11 +126,11 @@ export default function TeamSection() {
           <div className="bg-gradient-to-r from-cyan-50 to-blue-50 rounded-2xl p-8 border border-cyan-100">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Rejoignez notre communauté d'apprenants</h3>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Bénéficiez de l'expertise de nos formateurs pour développer vos compétences et atteindre vos objectifs
-              professionnels dans le domaine de la finance.
+              Bénéficiez de l'expertise de nos formateurs pour développer vos compétences...
             </p>
-            <button className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-             <Link href="/a-propos-de-nous#contact"> Découvrir nos formations </Link>
+            <button className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-3 rounded-lg font-semibold 
+                               hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <Link href="/a-propos-de-nous#contact">Découvrir nos formations</Link>
             </button>
           </div>
         </div>
