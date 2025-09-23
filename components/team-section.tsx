@@ -68,7 +68,7 @@ export default function TeamSection() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Notre équipe</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mb-8"></div>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Notre équipe est composée de professionnels hautement qualifiés et motivés...
+            Notre équipe est composée de professionnels hautement qualifiés.
           </p>
         </div>
 
