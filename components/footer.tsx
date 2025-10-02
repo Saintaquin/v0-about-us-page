@@ -29,7 +29,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span className="text-background/95">Paris, France</span>
+                <span className="text-background/95">27 rue du Chemin Vert 75011, Paris, France</span>
               </div>
               <a 
                 href="https://firstinstitute.fr" 
