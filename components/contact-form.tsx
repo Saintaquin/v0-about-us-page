@@ -68,8 +68,7 @@ export default function ContactForm() {
             </div>
 
             <div className="bg-gradient-to-r from-primary to-primary/90 rounded-xl p-6 text-white">
-              <h4 className="font-semibold mb-2">{t("services.interIntra.title")}</h4>
-              <p className="text-primary-foreground/90 mb-4">{t("services.interIntra.description")}</p>
+
               <Button
                 variant="secondary"
                 size="sm"
