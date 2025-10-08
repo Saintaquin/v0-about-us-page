@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Mail, Phone, Send, CheckCircle2 } from "lucide-react"
+import Image from "next/image"
 
 export default function ContactForm() {
   const { t } = useLanguage()
@@ -67,18 +68,22 @@ export default function ContactForm() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-primary to-primary/90 rounded-xl p-6 text-white">
+            <div className="bg-gradient-to-r from-primary to-primary/90 rounded-xl p-6 text-white flex flex-col items-center space-y-4">
+              <Image
+                src="/logo.jpg"
+                alt="Logo SupFinance"
+                width={100}
+                height={100}
+                className="rounded-full"
+              />
 
               <Button
                 variant="secondary"
                 size="sm"
                 className="transition-transform duration-300 ease-out hover:scale-105 hover:shadow-lg"
-                >
-                
+              >
                 {t("nav.contactUs")}
-                
               </Button>
-
             </div>
           </div>
 
