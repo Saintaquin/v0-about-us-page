@@ -1,3 +1,4 @@
+
 "use client"
 
 import React from "react"
@@ -12,8 +13,7 @@ import Image from "next/image"
 
 export default function ContactForm() {
   const { t } = useLanguage()
-  // Remplace par un env var si tu veux: process.env.NEXT_PUBLIC_FORMSPREE_ID
-  const formId = "xanpwndb" // depuis ton PDF/Formspree :contentReference[oaicite:1]{index=1}
+  const formId = "xanpwndb"
   const [state, handleSubmit] = useForm(formId)
 
   if (state.succeeded) {
@@ -41,7 +41,6 @@ export default function ContactForm() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Information */}
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-semibold text-slate-900 mb-6">{t("contact.info.title")}</h3>
@@ -68,7 +67,7 @@ export default function ContactForm() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-primary to-primary/90 rounded-xl p-6 text-white flex flex-col items-center space-y-4">
+            <div className="bg-gradient-to-r from-primary to-primary/90 rounded-xl p-6 text-white flex flex-col items-start space-y-4">
               <Image
                 src="/logo.jpg"
                 alt="Logo SupFinance"
@@ -87,7 +86,6 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* Contact Form (Formspree) */}
           <Card className="shadow-xl border-0">
             <CardHeader>
               <CardTitle className="text-2xl text-slate-900">{t("contact.form.title")}</CardTitle>
@@ -136,11 +134,7 @@ export default function ContactForm() {
                   <ValidationError prefix="Message" field="message" errors={state.errors} />
                 </div>
 
-                {/* Honeypot anti-spam (champ caché) */}
                 <input type="text" name="company" className="hidden" tabIndex={-1} autoComplete="off" />
-
-                {/* Optionnel : page de redirection après succès (gérée côté Formspree) */}
-                {/* <input type="hidden" name="_redirect" value="https://ton-domaine.com/merci" /> */}
 
                 <div aria-live="polite" className="text-sm text-slate-600">
                   {state.submitting && "..."}
