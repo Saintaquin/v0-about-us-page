@@ -69,13 +69,7 @@ export default function ContactForm() {
 
             
             <div className="bg-gradient-to-r from-primary to-primary/90 rounded-xl p-6 text-white flex flex-col items-start space-y-4 max-w-fit">
-              <Image
-                src="/logo.jpg"
-                alt="Logo SupFinance"
-                width={100}
-                height={100}
-                className="rounded-full"
-              />
+    
 
               <Button
                 variant="secondary"
