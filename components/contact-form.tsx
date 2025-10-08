@@ -67,7 +67,8 @@ export default function ContactForm() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-primary to-primary/90 rounded-xl p-6 text-white flex flex-col items-start space-y-4">
+            
+            <div className="bg-gradient-to-r from-primary to-primary/90 rounded-xl p-6 text-white flex flex-col items-start space-y-4 max-w-fit">
               <Image
                 src="/logo.jpg"
                 alt="Logo SupFinance"
@@ -84,6 +85,7 @@ export default function ContactForm() {
                 {t("nav.contactUs")}
               </Button>
             </div>
+
           </div>
 
           <Card className="shadow-xl border-0">
@@ -159,5 +161,3 @@ export default function ContactForm() {
     </section>
   )
 }
-
-
