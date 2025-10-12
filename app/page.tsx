@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import Image from "next/image"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import ContactForm from "@/components/contact-form"
@@ -113,11 +114,15 @@ export default function Home() {
 
       {/* Hero Section with Parallax */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div ref={heroRef} className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-blue-600" />
-        <div className="absolute inset-0 bg-[url('/modern-finance-office-building-glass-architecture.png')] bg-cover bg-center opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-primary/40" />
+        <div ref={heroRef} 
+        <div className="absolute inset-0 bg-[url('/modern-finance-office-building-glass-architecture.png')] bg-cover bg-center opacity-50" />
+        <div 
 
         <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
+        
+        <div className="absolute inset-0 bg-[url('/modern-finance-office-building-glass-architecture.png')] bg-cover bg-center opacity-50"  style={{ filter: "brightness(0.55) contrast(1.1)" }} />
+        <div className="absolute inset-0 bg-[#032241]/75 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[#032241]/60" /><div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
           <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
             <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-white to-cyan-200 bg-clip-text text-transparent">
               {t("hero.title")}
@@ -130,6 +135,18 @@ export default function Home() {
             <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-white drop-shadow-md">
               {t("hero.description")}
             </p>
+            {/* Brand logo under the hero description */}
+            <div className="mt-10 flex justify-center">
+              <Image
+                src="/sf-seal-logo.png"
+                alt="SupFinance Formations - logo"
+                width={180}
+                height={180}
+                className="opacity-80"
+                priority
+              />
+            </div>
+
           </div>
 
           {/* Floating elements */}
@@ -138,12 +155,8 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full blur-lg animate-bounce delay-500" />
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse" />
-          </div>
-        </div>
+        
+        
       </section>
 
       {/* Services Section */}
