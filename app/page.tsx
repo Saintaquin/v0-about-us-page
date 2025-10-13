@@ -112,29 +112,35 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section with Parallax */}
+            {/* Hero Section with Parallax */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div ref={heroRef} 
-        <div className="absolute inset-0 bg-[url('/modern-finance-office-building-glass-architecture.png')] bg-cover bg-center opacity-50" />
-        <div 
-
-        <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
-        
-        <div className="absolute inset-0 bg-[url('/modern-finance-office-building-glass-architecture.png')] bg-cover bg-center opacity-50"  style={{ filter: "brightness(0.55) contrast(1.1)" }} />
+        {/* Image + effet parallax */}
+        <div
+          ref={heroRef}
+          className="absolute inset-0 bg-[url('/modern-finance-office-building-glass-architecture.png')] bg-cover bg-center opacity-50"
+          style={{ filter: "brightness(0.55) contrast(1.1)" }}
+        />
+        {/* Overlays bleu #032241 */}
         <div className="absolute inset-0 bg-[#032241]/75 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-[#032241]/60" /><div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
+        <div className="absolute inset-0 bg-[#032241]/60" />
+
+        {/* Contenu */}
+        <div className="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
           <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out">
             <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-white to-cyan-200 bg-clip-text text-transparent">
               {t("hero.title")}
             </h1>
             <div className="h-1 w-32 bg-gradient-to-r from-primary to-blue-500 mx-auto mb-8 rounded-full" />
-            <p className="text-2xl md:text-4xl font-light mb-12 text-white drop-shadow-lg">{t("hero.subtitle")}</p>
+            <p className="text-2xl md:text-4xl font-light mb-12 text-white drop-shadow-lg">
+              {t("hero.subtitle")}
+            </p>
           </div>
 
           <div className="animate-on-scroll opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-300">
             <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed text-white drop-shadow-md">
               {t("hero.description")}
             </p>
+
             {/* Brand logo under the hero description */}
             <div className="mt-10 flex justify-center">
               <Image
@@ -146,18 +152,17 @@ export default function Home() {
                 priority
               />
             </div>
-
           </div>
 
-          {/* Floating elements */}
+          {/* Éléments flottants décoratifs */}
           <div className="absolute top-20 left-10 w-20 h-20 bg-cyan-400/20 rounded-full blur-xl animate-pulse" />
           <div className="absolute bottom-20 right-10 w-32 h-32 bg-blue-400/20 rounded-full blur-xl animate-pulse delay-1000" />
           <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full blur-lg animate-bounce delay-500" />
         </div>
-
-        
-        
       </section>
+
+
+
 
       {/* Services Section */}
       <section ref={servicesRef} className="py-32 bg-gradient-to-b from-background to-muted/30">
@@ -317,3 +322,4 @@ export default function Home() {
     </main>
   )
 }
+
