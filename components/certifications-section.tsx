@@ -160,13 +160,14 @@ export default function CertificationsSection() {
           <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-2xl p-8 border border-cyan-200/50">
             <h3 className="text-2xl font-bold text-foreground mb-4">{t("certs.cta.title")}</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">{t("certs.cta.text")}</p>
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8"
-              
-            >
-              <Link href="/a-propos-de-nous#contact">{t("certs.button.learnMore")}</Link>
-            </Button>
+            <Link href="/a-propos-de-nous#contact">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8"
+              >
+                {t("certs.button.learnMore")}
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
