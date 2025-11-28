@@ -83,10 +83,11 @@ export default function CertificationsSection() {
   const { t } = useLanguage()
   
   const handleDownloadBrochure = () => {
-    const brochureFile = "Brochure SupFinance Préparation au CFA new.pdf"
+    const brochureFile = "/Brochure SupFinance Préparation au CFA new.pdf"
     const link = document.createElement("a")
-    link.href = encodeURI(`/${brochureFile}`)
-    link.download = brochureFile
+    link.href = brochureFile
+    link.download = "Brochure SupFinance Préparation au CFA new.pdf"
+    link.target = "_blank"
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
